@@ -57,10 +57,11 @@ db.Pet.remove({}, function(err, pets) {
  db.myInfo.remove({}, function(err, myInfo){
       console.log('removed all myInfo');
       myInfo_list.forEach(function (myInfoData) {
-        var myInfo = new db.Book({
-          title: myInfoData.title,
-          image: myInfoData.image,
-          releaseDate: myInfoData.releaseDate
+        var myInfo = new db.myInfo({
+          name: myInfoData.name,
+          github_link: myInfoData.github_link,
+          github_profile_image: myInfoData.github_profile_image,
+          current_city: myInfoData.current_city,
         });
     
 });
