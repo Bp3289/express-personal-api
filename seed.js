@@ -3,7 +3,7 @@
 
 var db = require('./models');
 
-
+// var new_campsite = {description: "Sharp rocks. Middle of nowhere."}
 var myInfo_list = [
 {
   name: 'Billy',
@@ -47,7 +47,7 @@ var pets_list = [
 
 
 
-// var new_campsite = {description: "Sharp rocks. Middle of nowhere."}
+
 
 // db.Campsite.create(new_campsite, function(err, campsite){
 //   if (err){
