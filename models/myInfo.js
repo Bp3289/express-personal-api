@@ -1,14 +1,8 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
+  Pet = require('./pet');
 
-var PetSchema = new Schema({
-	name: String,
-	type: String,
-	breed: String,
-
-});
-
-var myInfo = new Schema({
+var myInfoSchema = new Schema({
   name: String,
   github_link: String,
   github_profile_image: String,
@@ -16,6 +10,6 @@ var myInfo = new Schema({
   pets: [PetSchema]
 });
 
-var myInfo = mongoose.model('Campsite', CampsiteSchema);
+var myInfo = mongoose.model('myInfo', myInfoSchema);
 
 module.exports = myInfo;
