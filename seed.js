@@ -44,6 +44,22 @@ var pets_list = [
  }
 ];
 
+var hobbie_list =[
+
+  {
+  	name: 'baseball',
+  	type: 'sport'
+  },
+  {
+  	name: 'movies',
+  	type:'entertainment'
+  },
+  {
+  	name: 'hiking',
+  	type: 'exercise'
+  }
+];
+
 db.Pet.remove({}, function(err, pets) {
   console.log('removed all pets');
   db.Pet.create(pets_list, function(err, pets){
