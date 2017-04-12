@@ -1,7 +1,20 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-  Pet = require('./pet.js');
-  Hobbie = require('./hobbies.js');
+  // Pet = require('./pet');
+
+var HobbieSchema = new Schema({
+	name: String,
+	type: String
+
+});
+
+var PetSchema = new Schema({
+	name: String,
+	type: String,
+	breed: String
+
+});
+
 
 var myInfoSchema = new Schema({
   name: String,
