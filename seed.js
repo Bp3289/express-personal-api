@@ -11,23 +11,51 @@ var myInfo_list = [
   github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
   current_city: 'Denver',
   pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
-  hobbies: hobbies_list
+  hobbie: 'baseball'
 },
+
+{
+  name: 'Billy',
+  github_link: 'https://github.com/Bp3289',
+  github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
+  current_city: 'Denver',
+  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  hobbie: 'movies'
+},
+
+{
+  name: 'Billy',
+  github_link: 'https://github.com/Bp3289',
+  github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
+  current_city: 'Denver',
+  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  hobbie: 'baseball'
+},
+
+{
+  name: 'Billy',
+  github_link: 'https://github.com/Bp3289',
+  github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
+  current_city: 'Denver',
+  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  hobbie: 'hiking'
+},
+
 ];
 
 
-var pets_list = [
-{
-	name: 'Gizmo',
-	type: 'dog',
-	breed: 'chihuahua'
-},
-{
-	name: 'Maggie',
-	type: 'dog',
-	breed: 'chihuahua'
-}
-];
+// var pets_list = [
+// {
+// 	name: 'Gizmo',
+// 	type: 'dog',
+// 	breed: 'chihuahua'
+// },
+// {
+// 	name: 'Maggie',
+// 	type: 'dog',
+// 	breed: 'chihuahua'
+// }
+// ];
 // {
 // 	name: 'Lola',
 // 	type: 'dog',
@@ -64,15 +92,15 @@ var hobbies_list =[
 
 
 
-db.Pet.remove({}, function(err, pets) {
-  console.log('removed all pets');
-  db.Pet.create(pets, function(err, pets){
+db.Hobbie.remove({}, function(err, hobbies) {
+  console.log('removed all hobbies');
+  db.Hobbie.create(hobbies_list, function(err, hobbies){
     if (err) {
       console.log(err);
       return;
     }
-    console.log('recreated all pets');
-    console.log("created", pets.length, "pets");
+    console.log('recreated all hobbies');
+    console.log("created", hobbies.length, "hobbies");
 
  db.myInfo.remove({}, function(err, myInfo){
       console.log('removed all myInfo');
@@ -83,19 +111,19 @@ db.Pet.remove({}, function(err, pets) {
           github_profile_image: myInfoData.github_profile_image,
           current_city: myInfoData.current_city,
         });
-        db.Pet.findOne({name: myInfoData.pet}, function (err, foundPet) {
-          console.log('found pet ' + foundPet.name);
+        db.Hobbie.findOne({name: myInfoData.hobbie}, function (err, foundHobbie) {
+          console.log('found hobbie ' + foundHobbie.name);
           if (err) {
             console.log(err);
             return;
           }
-          myInfo.pet = foundPet;
-          myInfo.save(function(err, savepet){
+          myInfo.pet = foundHobbie;
+          myInfo.save(function(err, saveHobbie){
             if (err)
               return console.log(err);
 
           });
-          console.log('saved' + foundPet.name);
+          console.log('saved' + foundHobbie.name);
     
 });
   });
