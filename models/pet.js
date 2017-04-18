@@ -1,13 +1,16 @@
-// var mongoose = require('mongoose'),
-//   Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+  Schema = mongoose.Schema;
 
-// var PetSchema = new Schema({
-// 	name: String,
-// 	type: String,
-// 	breed: String
+var PetSchema = new Schema({
+	name: String,
+	type: String,
+	breed: String
 
-// });
+});
 
-// var Pet = mongoose.model('Pet', PetSchema);
 
-// module.exports = Pet;
+var Pet = mongoose.model('Pet', PetSchema);
+
+
+
+module.exports = Pet;

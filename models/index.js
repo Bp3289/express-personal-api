@@ -7,7 +7,7 @@ mongoose.connect( process.env.MONGODB_URI ||
 // module.exports.Campsite = require("./campsite.js.example");
 
 module.exports.myInfo = require("./myInfo.js");
-// module.exports.Author = require("./pet.js");
-// module.exports.Book = require("./hobbies.js");
+module.exports.Pet = require("./pet.js");
+
 
 
