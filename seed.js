@@ -10,7 +10,7 @@ var myInfo_list = [
   github_link: 'https://github.com/Bp3289',
   github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
   current_city: 'Denver',
-  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  pet: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
   hobbie: 'baseball'
 },
 
@@ -19,7 +19,7 @@ var myInfo_list = [
   github_link: 'https://github.com/Bp3289',
   github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
   current_city: 'Denver',
-  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  pet: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
   hobbie: 'movies'
 },
 
@@ -28,7 +28,7 @@ var myInfo_list = [
   github_link: 'https://github.com/Bp3289',
   github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
   current_city: 'Denver',
-  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  pet: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
   hobbie: 'baseball'
 },
 
@@ -37,7 +37,7 @@ var myInfo_list = [
   github_link: 'https://github.com/Bp3289',
   github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
   current_city: 'Denver',
-  pets: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+  pet: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
   hobbie: 'hiking'
 },
 
@@ -110,6 +110,7 @@ db.Hobbie.remove({}, function(err, hobbies) {
           github_link: myInfoData.github_link,
           github_profile_image: myInfoData.github_profile_image,
           current_city: myInfoData.current_city,
+          pet: myInfoData.pet,
         });
         db.Hobbie.findOne({name: myInfoData.hobbie}, function (err, foundHobbie) {
           console.log('found hobbie ' + foundHobbie.name);
@@ -117,7 +118,7 @@ db.Hobbie.remove({}, function(err, hobbies) {
             console.log(err);
             return;
           }
-          myInfo.pet = foundHobbie;
+          myInfo.hobbie = foundHobbie;
           myInfo.save(function(err, saveHobbie){
             if (err)
               return console.log(err);

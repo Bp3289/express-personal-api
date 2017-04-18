@@ -17,7 +17,7 @@ var myInfoSchema = new Schema({
   github_link: String,
   github_profile_image: String,
   current_city: String,
-  pets: [PetSchema] ,
+  pet: [PetSchema],
   hobbies: {type: Schema.Types.ObjectId, ref: 'hobbie'}
 });
 

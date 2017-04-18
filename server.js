@@ -50,7 +50,7 @@ app.get('/api', function api_index(req, res) {
 });
 
 app.get('/api/myInfo', function (req, res) {
-  db.myInfo.find().populate('hobbie')
+  db.myInfo.find().populate('Hobbie')
     .exec(function(err, myInfo) {
       if (err) { return console.log("index error: " + err); }
       res.json(myInfo);
