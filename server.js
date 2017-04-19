@@ -11,6 +11,14 @@ app.use(bodyParser.json());
 /************
  * DATABASE *
  ************/
+ var myInfo = {
+
+  name: 'Billy',
+  github_link: 'https://github.com/Bp3289',
+  github_profile_image: 'https://avatars2.githubusercontent.com/u/26173785?v=3&u=6179293a5ec7e08ea870679dc84a5c215de86e3c&s=400',
+  current_city: 'Denver',
+  pet: [{name: "Gizmo", type: "Dog", breed: "chihuahua"}, {name: "Maggie", type: "Cat", breed: "siamese"}],
+};
 
 var db = require('./models');
 
@@ -49,11 +57,47 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
+
 app.get('/api/myInfo', function (req, res) {
-  db.myInfo.find().populate('Hobbie')
-    .exec(function(err, myInfo) {
+  // db.myInfo.find().populate('myInfo')
+  // .exec(function(err, myInfo) {
+  //   if (err) { return console.log("index error:" + err); }
+    res.json(myInfo);
+  });
+
+
+app.get('/api/hobbies', function (req, res) {
+  db.Hobbie.find({}, function (err, hobbies) {
       if (err) { return console.log("index error: " + err); }
-      res.json(myInfo);
+      res.json(hobbies);
+  });
+});
+
+app.get('/api/hobbies/:id', function (req, res) {
+  db.Hobbie.findOne({_id: req.params.id}, function(err, hobbie) {
+    if (err) { return console.log("index error:" + err); }
+    res.json(hobbie);
+  });
+});
+
+app.post('/api/hobbies', function(req, res){
+
+  var differentHobbie = new db.Hobbie({
+
+    name: req.body.name,
+    type: req.body.type
+  });
+  differentHobbie.save(function(err, hobbie){
+    if (err) { return console.log("index error:" + err); }
+    console.log("saved", hobbie.name);
+    res.json(hobbie);
+  });
+});
+
+app.delete('/api/hobbies/:id', function(req, res){
+  db.Hobbie.findOneAndRemove({_id: req.params.id}, function(err, hobbie) {
+    if (err) { return console.log("index error:" + err); }
+    res.json(hobbie + "was deleted");
   });
 });
 
