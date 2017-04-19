@@ -51,8 +51,11 @@ app.get('/api', function api_index(req, res) {
     base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
     endpoints: [
       
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/myInfo", description: "Data about me"},
+      {method: "GET", path: "/api/hobbies", description: "Data about my hobbies"},
+      {method: "GET", path: "/api/hobbies/:id", description: "Find individual hobbies" }, 
+      {method: "POST", path: "/api/hobbies", description: "E.g. Create a new hobbie"} ,
+      {method: "DELETE", path: "/api/hobbies/:id", description: "delete a hobbie"}
     ]
   });
 });
